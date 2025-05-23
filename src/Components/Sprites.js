@@ -9,20 +9,17 @@ export default function Sprites(props) {
       .then(response => response.json())
       .then(json => setPokemonSprite(json))
       .catch(error => console.error(error));
-  }, []);
-
-  function capitalize(name) {
-  return name.charAt(0).toUpperCase() + name.slice(1);
-}
+  }, [props]);
 
   console.log(pokemonSprite.sprites.front_default)
   return (
-    <button class="relative inline-flex items-start justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg">
+    <button class="relative inline-flex items-center justify-center p-2 mb-2 me-2 text-sm font-medium text-white rounded-lg border-2 border-red-500 bg-red-500 hover:bg-blue-500 hover:text-red-500 transition-colors duration-300">
         <img
           src={pokemonSprite.sprites.front_default}
-          alt="Katherine Johnson"
+          alt="Pokebutton"
+          className="border-2 border-red-500 bg-white rounded-xl"
         />  
-        <span className="">{capitalize(pokemonSprite.name)}</span> 
+        <span className="relative flex flex-row items-center justify-center text-white w-full h-full text-xl capitalize">{pokemonSprite.name}</span> 
     </button>
   )
 }
